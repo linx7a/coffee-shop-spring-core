@@ -1,52 +1,55 @@
 # Coffee Shop
 
-A console-based Java application built with pure Spring Framework (without Spring Boot) to practice and demonstrate core Spring concepts.
+Консольное Java-приложение на чистом Spring Framework (без Spring Boot), созданное для практики и демонстрации основных возможностей Spring.
 
-## About
+## О проекте
 
-This project was created as a learning exercise to understand how Spring works under the hood, without the auto-configuration magic of Spring Boot. Every bean, component scan, and AOP proxy is configured manually.
+Проект создан как учебное упражнение, чтобы понять, как Spring работает «под капотом», без автоконфигурации Spring Boot. Каждый бин, сканирование компонентов и AOP-прокси настроены вручную.
 
-## Concepts Covered
+## Что изучалось
 
-- **IoC Container** — manual setup via `AnnotationConfigApplicationContext`
-- **Dependency Injection** — constructor-based DI (`OrderService` depends on `Barista`)
-- **Component Scanning** — `@ComponentScan` with `@Configuration`
-- **AOP** — `@Aspect` with `@Around` advice for logging brew time and order summary
-- **External Configuration** — `@Value` with `@PropertySource` and `application.properties`
-- **SLF4J Logging** — replacing `System.out.println` with proper logging
+- **IoC-контейнер** — ручная настройка через `AnnotationConfigApplicationContext`
+- **Внедрение зависимостей (DI)** — через конструктор (`OrderService` зависит от `Barista`)
+- **Сканирование компонентов** — `@ComponentScan` вместе с `@Configuration`
+- **AOP** — `@Aspect` с советом `@Around` для логирования времени приготовления и итогов заказа
+- **Внешняя конфигурация** — `@Value` с `@PropertySource` и `application.properties`
+- **Логирование SLF4J** — замена `System.out.println` на полноценное логирование
 
-## Tech Stack
+## Технологии
 
 - Java 18
 - Spring Framework 7.0.8
 - AspectJ Weaver 1.9.22
 - SLF4J Simple 2.0.18
-- JUnit 5 + Mockito 5 (unit tests)
+- JUnit 5 + Mockito 5 (юнит-тесты)
 - Maven
 
-## How to Run
+## Как запустить
 
-1. Clone the repository
-2. Open in IntelliJ IDEA as a Maven project
-3. Wait for dependencies to load
-4. Run `Main.java`
+1. Склонируйте репозиторий
+2. Откройте проект в IntelliJ IDEA как Maven-проект
+3. Дождитесь загрузки зависимостей
+4. Запустите `Main.java`
 
-## Project Structure
+## Структура проекта
+
 ```
 src/main/java/coffeeshop/
-├── AppConfig.java        # Spring configuration
-├── Main.java             # Entry point
-├── Coffee.java           # Enum with menu items and pricing
-├── Order.java            # Order model
-├── Barista.java          # Service: prepares coffee
-├── OrderService.java     # Service: processes orders
-└── LoggingAspect.java    # AOP: logs brew time and order summary
+├── AppConfig.java        # конфигурация Spring
+├── Main.java             # точка входа
+├── Coffee.java           # enum с позициями меню и ценами
+├── Order.java            # модель заказа
+├── Barista.java          # сервис: готовит кофе
+├── OrderService.java     # сервис: обрабатывает заказы
+└── LoggingAspect.java    # AOP: логирует время приготовления и итоги заказа
 
 src/test/java/coffeeshop/
-├── OrderTest.java            # Unit tests for Order
-└── OrderServiceTest.java     # Unit tests for OrderService (Mockito)
+├── OrderTest.java            # юнит-тесты для Order
+└── OrderServiceTest.java     # юнит-тесты для OrderService (Mockito)
 ```
-## Sample Output
+
+## Пример работы
+
 ```
 Добро пожаловать в Fifth Cup!
 CAPPUCCINO готовится...
